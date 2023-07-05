@@ -288,7 +288,7 @@
                 &trans   
                 &trans
                 &trans
-            >
+            >;
         };
 
         trans_layer {
@@ -350,7 +350,7 @@
                 &trans   
                 &trans
                 &trans
-            >
+            >;
         };
 
         none_layer {
@@ -412,7 +412,7 @@
                 &none   
                 &none
                 &none
-            >
+            >;
         };
     };
 };
