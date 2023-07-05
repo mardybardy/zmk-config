@@ -382,7 +382,7 @@
                 &trans
                 &trans
             >;
-        }
+        };
 
         trans_layer {
             bindings = <
