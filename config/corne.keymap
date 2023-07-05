@@ -158,7 +158,7 @@
                 /* LEFT CLUSTER */
                 &none     
                 &to NSN_LAYER         
-                &BSPC          
+                &kp BSPC          
 
                 /* RIGHT CLUSTER */    
                 &kp SPC      
