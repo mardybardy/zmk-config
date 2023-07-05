@@ -14,8 +14,9 @@
 #define QWERTY_LAYER 0
 #define NSN_LAYER 1
 #define FN_LAYER 2
-#define TRANS_LAYER 3
-#define NONE_LAYER 4
+#define BT_LAYER 3
+#define TRANS_LAYER 4
+#define NONE_LAYER 5
 
 // KEY POSITIONS
 
@@ -64,14 +65,28 @@
 // LEFT
 // |     | f1     | f2     | f3     | f4       | f5       |
 // |     | f11    | f12    | C_MUTE | C_VOL_DN | C_BRI_DN |
-// |     | {SHFT} | {CTRL} | {ALT}  | {GUI}    | ESC      |     
+// |     | {SHFT} | {CTRL} | {ALT}  | {GUI}    | ESC {BT} |     
 //                         |        | QWERTY   |          |
 
 // RIGHT
-// | f6       | f7       | f8    | f9     | f10       |     |
-// | C_BRI_UP | C_VOL_UP |       |        |           |     |
-// | ESC      | {GUI}    | {ALT} | {CTRL} | {SHFT}    |     |
-// |          |          |       |
+// | f6       | f7       | f8     | f9     | f10       |     |
+// | C_BRI_UP | C_VOL_UP |        |        |           |     |
+// | ESC {BT} | {GUI}    | {ALT}  | {CTRL} | {SHFT}    |     |
+// |          |          |        |
+
+// ## BT LAYER
+
+// LEFT
+// |     | BT_SEL 0 | BT_SEL 1 | BT_SEL 2  | BT_SEL 3  | BT_SEL 4 |
+// |     |          |          |           | BT_PRV    | BT_NXT   |
+// |     |          |          |           |           |          |     
+//                             |           |           |          |
+
+// RIGHT
+// |  CLEAR  |      |      |      | RESET  |     |
+// |         |      |      |      |        |     |
+// |         |      |      |      |        |     |
+// |         |      |      |
 
 / {
 
@@ -81,6 +96,23 @@
             label = "shutdown_keeb";
             #binding-cells = <0>;
             bindings = <&to NONE_LAYER &kp K_SLEEP &ext_power EP_OFF>;
+        };
+        reset_bt: reset_bt {
+            compatible = "zmk,behavior-macro";
+            label = "reset_bt";
+            #binding-cells = <0>;
+            bindings = <
+                &bt BT_SEL 0 
+                &bt BT_CLR
+                &bt BT_SEL 1 
+                &bt BT_CLR
+                &bt BT_SEL 2 
+                &bt BT_CLR
+                &bt BT_SEL 3 
+                &bt BT_CLR
+                &bt BT_SEL 4 
+                &bt BT_CLR
+            >;
         };
     };
 
@@ -268,10 +300,10 @@
                 &trans 
                 &trans   
                 &trans   
-                &kp ESC
+                &lt BT_LAYER ESC
 
                 /* RIGHT LOWER */    
-                &kp ESC 
+                &lt BT_LAYER ESC
                 &trans  
                 &trans        
                 &trans 
@@ -289,6 +321,68 @@
                 &trans
             >;
         };
+
+        bt_layer {
+            bindings = <
+                /* LEFT UPPER */
+                &none 
+                &bt BT_SEL 0 
+                &bt BT_SEL 1        
+                &bt BT_SEL 2 
+                &bt BT_SEL 3 
+                &bt BT_SEL 4
+
+                /* RIGHT UPPER */    
+                &bt BT_CLR 
+                &none 
+                &none        
+                &none 
+                &reset_bt 
+                &none
+
+                /* LEFT MIDDLE */
+                &none 
+                &none 
+                &none        
+                &none 
+                &bt BT_PRV 
+                &bt BT_NXT 
+
+                /* RIGHT MIDDLE */    
+                &none 
+                &none 
+                &none        
+                &none 
+                &none 
+                &none
+
+                /* LEFT LOWER */    
+                &none  
+                &none   
+                &none 
+                &none   
+                &none   
+                &trans
+
+                /* RIGHT LOWER */    
+                &trans 
+                &none  
+                &none        
+                &none 
+                &none
+                &none
+                
+                /* LEFT CLUSTER */               
+                &trans 
+                &trans  
+                &trans 
+
+                /* RIGHT CLUSTER */    
+                &trans   
+                &trans
+                &trans
+            >;
+        }
 
         trans_layer {
             bindings = <
