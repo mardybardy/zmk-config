@@ -81,7 +81,7 @@
         shutdown_keeb: shutdown_keeb {
             label = "ZM_shutdown_keeb";
             #binding-cells = <0>;
-            bindings = <&to NONE_LAYER &ext_power EP_OFF &suspend>;
+            bindings = <&to NONE_LAYER &kp K_SLEEP &ext_power EP_OFF>;
         };
     };
 
