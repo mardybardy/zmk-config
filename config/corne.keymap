@@ -79,7 +79,7 @@
         compatible = "zmk,behavior-macro";
         
         shutdown_keeb: shutdown_keeb {
-            label = "ZM_shutdown_keeb";
+            label = "shutdown_keeb";
             #binding-cells = <0>;
             bindings = <&to NONE_LAYER &kp K_SLEEP &ext_power EP_OFF>;
         };
@@ -416,3 +416,4 @@
         };
     };
 };
+    
