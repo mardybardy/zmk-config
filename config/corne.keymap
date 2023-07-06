@@ -38,13 +38,13 @@
 // | ESC   | Q        | W        | E       | R       | T        |
 // | TAB   | A        | S        | D       | F       | G        |
 // | LSHFT | Z {SHFT} | X {CTRL} | C {ALT} | V {GUI} | B  {NSN} |
-//                               |         | NSN     | BSPC     |
+//                               |         | BSPC    | NSN      |
 
 // RIGHT
 // | Y       | U       | I         | O          | P          | BSPC  |
 // | H       | J       | K         | L          | ; :        | RET   |
 // | N {NSN} | M {GUI} | , < {ALT} | . > {CTRL} | / ? {SHFT} | RSHFT |
-// | SPACE   | RET     |           |
+// | RET     | SPACE   |           |
 
 // ### NUM-SYM-NAV LAYER
 
@@ -52,7 +52,7 @@
 // |     | 1 !        | 2 @ €     | 3 £ #     | 4 $       | 5 %     |
 // |     | TAB        | [ {       | ] }       | - _       | + =     |
 // |     | ` ~ {SHFT} | {CTRL}    | {ALT}     | {GUI}     | ESC     |
-//                                |           | QWERTY    |         |
+//                                |           |           | QWERTY  |
 
 // RIGHT
 // | 6 ^  | 7 &   | 8 \*  | 9 (    | 0 )     |     |
@@ -66,7 +66,7 @@
 // |     | f1     | f2     | f3     | f4       | f5       |
 // |     | f11    | f12    | C_MUTE | C_VOL_DN | C_BRI_DN |
 // |     | {SHFT} | {CTRL} | {ALT}  | {GUI}    | ESC {BT} |     
-//                         |        | QWERTY   |          |
+//                         |        |          | QWERTY   |
 
 // RIGHT
 // | f6       | f7       | f8     | f9     | f10       |     |
@@ -188,12 +188,12 @@
 
                 /* LEFT CLUSTER */
                 &none     
-                &to NSN_LAYER         
                 &kp BSPC          
+                &to NSN_LAYER         
 
                 /* RIGHT CLUSTER */    
-                &kp SPC      
                 &kp RET        
+                &kp SPC      
                 &none
             >;
         };
@@ -250,8 +250,8 @@
 
                 /* LEFT CLUSTER */
                 &trans     
-                &to QWERTY_LAYER        
                 &trans   
+                &to QWERTY_LAYER      
 
                 /* RIGHT CLUSTER */    
                 &trans      
@@ -312,8 +312,8 @@
                 
                 /* LEFT CLUSTER */               
                 &trans 
-                &to QWERTY_LAYER  
-                &trans 
+                &trans  
+                &to QWERTY_LAYER 
 
                 /* RIGHT CLUSTER */    
                 &trans   
