@@ -21,3 +21,9 @@ include:
     shield: cradio_left
   - board: nice_nano_v2
     shield: cradio_right
+  - board: nice_nano_v2
+    shield: cradio_left
+    keymap: cradio-02
+  - board: nice_nano_v2
+    shield: cradio_right
+    keymap: cradio-02
